@@ -9,7 +9,7 @@ public class RysowanieMysza {
     }
 }
 
-class Okno extends JFrame  {
+class Okno extends JFrame  { // rozszerzenie klasy JFrame poprzez klase Okno
     public Okno(){
         setTitle("Rysowanie Mysz¹");
         setSize(400,400);
@@ -20,7 +20,7 @@ class Okno extends JFrame  {
     }
 }
 
-class Panel extends JPanel implements MouseListener {
+class Panel extends JPanel implements MouseListener {// implementacja sluchacza myszy
     Point tab[]=new Point[80];
     int indeks=0;
 
@@ -38,13 +38,16 @@ class Panel extends JPanel implements MouseListener {
                     g.setColor(Color.red);
                     g.drawLine(xp, yp, xk, yk);
                 }
-                else g.drawLine(tab[i].x, tab[i].y, tab[i].x, tab[i].y);
+                else{
+					g.drawLine(tab[i].x, tab[i].y, tab[i].x, tab[i].y);
+				}
+
             }
         }
     }
 
 
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e) { 
         int x=e.getX();
         int y=e.getY();
         tab[indeks]=new Point(x,y);
